@@ -1,0 +1,26 @@
+﻿Analysis 
+        This analysis will address the big O notation for Task0 to Task4 and it will also go through the execution time for some code that achieves the same thing in different ways.
+
+
+        For Task0, the objective is to print an index of a list but before that, it must be accessed. Accessing it and saving it to a variable takes up only one line of code but with several variables, the code makes it look like: O(1+1+1+1…). which gives it a simplified notation of O(1), giving it a constant time complexity. This is the worst case since it has more lines of code than if I were to simply access the list indexes in the print statement like so: print(“text:”, list[0][1]); the lines of code are reduced like this but so is the quality of code.
+
+
+        In Task1, there are two for loops and a simple for loop has a big O notation of O(n). With two loops and some other lines of code it gives it a notation of O(2n + 1) and when simplified it can be seen as: O(n), giving it a linear increase in time. Since this task asked for an output of the number of unique numbers in the record, set() was used to remove duplicates, I also tried it with list comprehension. In this task, using set() was a clear best case with a notation of O(1) compared to using list comprehension with a notation of O(n).
+
+
+        Task2’s objective is to get the longest call and print the duration and the answerer’s number. The best case is to use a for loop to add a list of callers into a dictionary, with a duration value of 0, in other words converting from list to dictionary with values set to 0; the notation at this stage is O(n). Then I used a for loop to iterate through the keys of the dictionary and a nested loop to go through calls, it checks if the key is equal to the caller of the calls list and appends to the duration to the value which now gives a notation of O(n² + n). Finally, to get the longest duration, I sorted the dictionary by its value, converting it to a list in the process and got the last index. With everything combined it would have a time complexity of O(n² + 2n + 1) and simplifying it would be O(n²) because of the nested for loop. To increase time (worst case), I could loop through calls and have the dictionary be the nested loop and since the calls list is larger than the dictionary, it would be very inefficient. Also, If I were to use a for loop using a quicksort algorithm to sort the dictionary, it would add to the time complexity with a notation of O(n log(n)) giving it a worst case scenario of O(n² + n + n log(n) + 1). 
+
+
+        For Task3, there is a single for loop that goes through calls and saves different values in different lists. In the loop where it makes checks to add callers to the answerers set, which don’t accept duplicates, there will be no need to have an extra process of removing duplicates, reducing time. Ignoring the loop for the print statement, the best case notation would be O(2n + 1) with a simplified notation of O(n). The worst case would be if I saved answers in a list and would then have to remove duplicates using set(), increasing time. Also, if I were to use an insertion sort algorithm to sort the list of answers it would give a worst case time complexity of (n² + n) ignoring the print statement. 
+
+
+        Task4 is similar to the previous, in this case there are two for loops, one that adds all text numbers and another that adds call receivers to an excluded set. In another for loop, it checks if the caller from the calls list is not in the excluded set and adds it to another set. Afterwards when sorting the list, I used sort() and ignoring the loop in the print statement, the time complexity would be O(4n)) and when simplified it would be O(n). The worst case would be if we were to use lists instead of sets; there would be more to be done in the loops because lists accept duplicates. Also, if i were to use loops to sort the telemarketers list, the worst case time complexity would potentially be O(n² + 3n) and when simplified it would be O(n²), making it significantly slower.
+Sources
+Croy, Maxwell Harvey. “How to Calculate Time Complexity with Big O Notation.” Medium, DataSeries, 28 July 2020, https://medium.com/dataseries/how-to-calculate-time-complexity-with-big-o-notation-9afe33aa4c46.
+Grifski, Jeremy. “How to Performance Test Python Code: Timeit, CProfile, and More.” The Renegade Coder, 14 Feb. 2022, https://therenegadecoder.com/code/how-to-performance-test-python-code/.
+“Know Thy Complexities!” Big-O Cheat Sheet, https://www.bigocheatsheet.com/.
+“Python - Ways to Remove Duplicates from List.” GeeksforGeeks, 25 Sept. 2022, https://www.geeksforgeeks.org/python-ways-to-remove-duplicates-from-list/.
+“Python: Sort a List According to the Second Element in Sublist.” GeeksforGeeks, 21 Nov. 2018, https://www.geeksforgeeks.org/python-sort-list-according-second-element-sublist/.
+Tagliaferri, Lisa. “How to Index and Slice Strings in Python 3.” DigitalOcean, DigitalOcean, 15 Dec. 2021, https://www.digitalocean.com/community/tutorials/how-to-index-and-slice-strings-in-python-3.
+Vo, Tu. “How Fast Can You Sort?” Medium, Medium, 5 July 2019, https://medium.com/@tuvo1106/how-fast-can-you-sort-9f75d27cf9c1.
+https://github.com/python/cpython/blob/main/Python/bltinmodule.c
